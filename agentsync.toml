@@ -1,6 +1,6 @@
 source_dir = "."
 
-default_agents = ["claude", "codex", "opencode"]
+default_agents = ["claude", "codex", "opencode", "cursor"]
 
 [gitignore]
 enabled = false
@@ -40,4 +40,13 @@ type = "symlink"
 [agents.opencode.targets.skills]
 source = "skills"
 destination = "/Users/karen/.opencode/skill"
+type = "symlink"
+
+[agents.cursor]
+enabled = true
+description = "Cursor user-level shared skills"
+
+[agents.cursor.targets.skills]
+source = "skills"
+destination = "/Users/karen/.cursor/skills-cursor"
 type = "symlink"
