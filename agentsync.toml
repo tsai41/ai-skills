@@ -7,7 +7,12 @@ enabled = false
 
 [agents.claude]
 enabled = true
-description = "Claude Code user-level shared skills"
+description = "Claude Code user-level shared agents and skills"
+
+[agents.claude.targets.agents]
+source = "agents"
+destination = "/Users/karen/.claude/agents"
+type = "symlink"
 
 [agents.claude.targets.skills]
 source = "skills"
@@ -25,7 +30,12 @@ type = "symlink"
 
 [agents.opencode]
 enabled = true
-description = "OpenCode user-level shared skills"
+description = "OpenCode user-level shared agents and skills"
+
+[agents.opencode.targets.agents]
+source = "agents"
+destination = "/Users/karen/.opencode/agent"
+type = "symlink"
 
 [agents.opencode.targets.skills]
 source = "skills"

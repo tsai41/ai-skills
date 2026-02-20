@@ -19,6 +19,23 @@ Current shared skills targets:
 
 Each target is managed by AgentSync and points to the same shared skills source.
 
+## Install AgentSync
+
+Project links:
+
+- GitHub: https://github.com/dallay/agentsync
+- Lib.rs: https://lib.rs/crates/agentsync
+
+Install options:
+
+```bash
+# npm (global)
+npm install -g @dallay/agentsync
+
+# or Rust
+cargo install agentsync
+```
+
 ## AgentSync Usage
 
 From the `ai-hub` root directory:
