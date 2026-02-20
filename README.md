@@ -1,5 +1,10 @@
 # AI Hub
 
+TL;DR:
+- Run `make sync-all` from this directory to sync links, MCP, and policy.
+- Shared source lives in `agents/` and `skills/`.
+- AgentSync is required to apply these sync operations.
+
 `ai-hub` is the user-level source of truth for shared AI setup.
 
 It centralizes:
@@ -8,13 +13,30 @@ It centralizes:
 - MCP sync config
 - permission policy defaults
 
-## Layout
+## Prerequisite
 
-- `agents/`: shared agent definitions and prompts
-- `skills/`: shared skills used by multiple tools
-- `agentsync.toml`: link sync config for agents and skills
-- `policy/user-policy.json`: permission policy definition
-- `scripts/`: operational scripts (`sync-mcp.sh`, `apply-policy.py`, `check-links.sh`)
+This repository uses AgentSync to integrate and synchronize settings across AI tools.
+
+- GitHub: https://github.com/dallay/agentsync
+- Lib.rs: https://lib.rs/crates/agentsync
+
+## Quick Start
+
+Run from `ai-hub` root:
+
+```bash
+make sync-all
+```
+
+`make sync-all` runs the full pipeline:
+- links sync (`agentsync.toml`)
+- MCP sync (`../.agentsync-mcp.toml`)
+- policy apply (`policy/user-policy.json`)
+- link health check
+
+Scope boundary:
+- This repo manages user-level shared setup only.
+- Project-specific instructions (for example per-repo `AGENTS.md`) should stay in each project.
 
 ## Synced Targets
 
@@ -31,14 +53,17 @@ It centralizes:
 - `.claude/agents`
 - `.opencode/agent`
 
-## AgentSync Links
+## Layout
 
-- GitHub: https://github.com/dallay/agentsync
-- Lib.rs: https://lib.rs/crates/agentsync
+- `agents/`: shared agent definitions and prompts
+- `skills/`: shared skills used by multiple tools
+- `agentsync.toml`: link sync config for agents and skills
+- `policy/user-policy.json`: permission policy definition
+- `scripts/`: operational scripts (`sync-mcp.sh`, `apply-policy.py`, `check-links.sh`)
 
-## Daily Workflow
+## Commands
 
-Run from `ai-hub` root:
+Run from `ai-hub` root when you need partial operations:
 
 ```bash
 make sync-dry
@@ -49,6 +74,11 @@ make check
 make sync-all
 ```
 
+Common path:
+- Daily use: `make sync-all`
+- Quick validation: `make check`
+- Preview only: `make sync-dry`
+
 Command intent:
 - `make sync-dry`: preview link changes
 - `make sync`: apply links from `agentsync.toml`
@@ -58,8 +88,17 @@ Command intent:
 - `make sync-all`: run full pipeline (`sync` + `sync-mcp` + `apply-policy` + `check`)
 - `make bootstrap`: alias of `make sync-all`
 
-## Policy Scope
+## Permission Policy
 
 `policy/user-policy.json` currently manages permission defaults only:
 - Claude `settings.local.json`: read-only tool and read-only git/system command allowances
 - Gemini `settings.json`: MCP server trust flags
+
+Policy behavior:
+- The policy script appends missing allowed items and does not remove existing entries.
+
+## Troubleshooting
+
+- `agentsync: command not found`: install AgentSync, then re-run `make sync-all`.
+- OpenCode MCP not updated: run `make sync-mcp` and check `.config/opencode/opencode.json` has `mcp` entries.
+- `make check` warns about `._old` folders: safe during migration; remove later if no rollback is needed.
