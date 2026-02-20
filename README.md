@@ -54,6 +54,11 @@ Use the included `Makefile` to keep operations short and consistent:
 ```bash
 make sync-dry   # preview planned link updates
 make sync       # apply links
+make sync-mcp   # sync MCP servers across tool configs
 make check      # verify links point to .ai-hub
 make bootstrap  # sync-dry + check
 ```
+
+MCP sync uses the home-level config at `../.agentsync-mcp.toml` so AgentSync
+updates each tool's user config location. For OpenCode, `make sync-mcp` merges
+generated MCP entries into `.config/opencode/opencode.json`.
