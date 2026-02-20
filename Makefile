@@ -6,6 +6,9 @@ sync-dry:
 sync:
 	agentsync apply --config agentsync.toml --verbose
 
+sync-mcp:
+	./scripts/sync-mcp.sh
+
 check:
 	./scripts/check-links.sh
 
