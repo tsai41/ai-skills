@@ -45,12 +45,13 @@ agentsync apply --config agentsync.toml --dry-run --verbose
 agentsync apply --config agentsync.toml --verbose
 ```
 
-## Migration Note
+## Daily Commands
 
-Legacy locations:
+Use the included `Makefile` to keep operations short and consistent:
 
-- `.ai-agents`
-- `.ai-skills`
-
-During transition, keep legacy paths compatible (symlink or redirect docs) until
-all scripts and GitHub repo paths are updated.
+```bash
+make sync-dry   # preview planned link updates
+make sync       # apply links
+make check      # verify links point to .ai-hub
+make bootstrap  # sync-dry + check
+```
