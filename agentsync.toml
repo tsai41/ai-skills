@@ -1,0 +1,33 @@
+source_dir = "."
+
+default_agents = ["claude", "codex", "opencode"]
+
+[gitignore]
+enabled = false
+
+[agents.claude]
+enabled = true
+description = "Claude Code user-level shared skills"
+
+[agents.claude.targets.skills]
+source = "skills"
+destination = "/Users/karen/.claude/skills"
+type = "symlink"
+
+[agents.codex]
+enabled = true
+description = "Codex CLI user-level shared skills"
+
+[agents.codex.targets.skills]
+source = "skills"
+destination = "/Users/karen/.codex/skills"
+type = "symlink"
+
+[agents.opencode]
+enabled = true
+description = "OpenCode user-level shared skills"
+
+[agents.opencode.targets.skills]
+source = "skills"
+destination = "/Users/karen/.opencode/skill"
+type = "symlink"

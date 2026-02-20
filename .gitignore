@@ -1,0 +1,14 @@
+# OS metadata
+.DS_Store
+
+# Temporary and backup artifacts
+*.bak
+*.bak.*
+*.tmp
+*.swp
+
+# Local-only overrides
+agentsync.local.toml
+
+# Logs
+*.log
