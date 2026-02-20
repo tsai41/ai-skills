@@ -16,6 +16,7 @@ Current shared skills targets:
 - `.claude/skills`
 - `.codex/skills`
 - `.cursor/skills-cursor`
+- `.gemini/antigravity/skills`
 - `.opencode/skill`
 
 Each target is managed by AgentSync and points to the same shared skills source.
