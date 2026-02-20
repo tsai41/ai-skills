@@ -1,0 +1,32 @@
+{
+  "claude": {
+    "permissionsAllow": [
+      "Read(*)",
+      "Grep(*)",
+      "Glob(*)",
+      "Bash(ls:*)",
+      "Bash(pwd)",
+      "Bash(whoami)",
+      "Bash(id)",
+      "Bash(uname:*)",
+      "Bash(date)",
+      "Bash(which:*)",
+      "Bash(type:*)",
+      "Bash(df:*)",
+      "Bash(du:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git branch:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(git ls-files:*)",
+      "Bash(git remote:*)",
+      "Bash(git config --get:*)",
+      "Bash(git blame:*)"
+    ]
+  },
+  "gemini": {
+    "forceMcpTrust": true
+  }
+}

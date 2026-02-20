@@ -9,7 +9,12 @@ sync:
 sync-mcp:
 	./scripts/sync-mcp.sh
 
+apply-policy:
+	./scripts/apply-policy.py
+
 check:
 	./scripts/check-links.sh
 
-bootstrap: sync-dry check
+sync-all: sync sync-mcp apply-policy check
+
+bootstrap: sync-all
