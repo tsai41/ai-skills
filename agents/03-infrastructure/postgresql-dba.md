@@ -1,7 +1,23 @@
 ---
 name: postgresql-dba
 description: Work with PostgreSQL databases using the PostgreSQL extension.
-tools: codebase, edit/editFiles, githubRepo, extensions, runCommands, database, pgsql_bulkLoadCsv, pgsql_connect, pgsql_describeCsv, pgsql_disconnect, pgsql_listDatabases, pgsql_listServers, pgsql_modifyDatabase, pgsql_open_script, pgsql_query, pgsql_visualizeSchema
+tools:
+  codebase: true
+  edit/editFiles: true
+  githubRepo: true
+  extensions: true
+  runCommands: true
+  database: true
+  pgsql_bulkLoadCsv: true
+  pgsql_connect: true
+  pgsql_describeCsv: true
+  pgsql_disconnect: true
+  pgsql_listDatabases: true
+  pgsql_listServers: true
+  pgsql_modifyDatabase: true
+  pgsql_open_script: true
+  pgsql_query: true
+  pgsql_visualizeSchema: true
 model: sonnet
 ---
 
