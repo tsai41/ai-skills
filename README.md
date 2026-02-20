@@ -70,6 +70,7 @@ make sync-dry
 make sync
 make sync-mcp
 make apply-policy
+make install-hooks
 make check
 make sync-all
 ```
@@ -84,7 +85,8 @@ Command intent:
 - `make sync`: apply links from `agentsync.toml`
 - `make sync-mcp`: sync MCP from `../.agentsync-mcp.toml` and merge OpenCode MCP into `.config/opencode/opencode.json`
 - `make apply-policy`: apply permission policy from `policy/user-policy.json`
-- `make check`: verify all managed links
+- `make install-hooks`: install repository git hooks (including pre-commit agent validation)
+- `make check`: validate agent frontmatter schema and verify all managed links
 - `make sync-all`: run full pipeline (`sync` + `sync-mcp` + `apply-policy` + `check`)
 - `make bootstrap`: alias of `make sync-all`
 
