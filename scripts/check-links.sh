@@ -29,6 +29,7 @@ check_link "${HOME}/.claude/agents" "${HUB_DIR}/agents"
 check_link "${HOME}/.claude/skills" "${HUB_DIR}/skills"
 check_link "${HOME}/.codex/skills" "${HUB_DIR}/skills"
 check_link "${HOME}/.cursor/skills-cursor" "${HUB_DIR}/skills"
+check_link "${HOME}/.gemini/antigravity/skills" "${HUB_DIR}/skills"
 check_link "${HOME}/.opencode/agent" "${HUB_DIR}/agents"
 check_link "${HOME}/.opencode/skill" "${HUB_DIR}/skills"
 

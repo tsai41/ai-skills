@@ -1,6 +1,6 @@
 source_dir = "."
 
-default_agents = ["claude", "codex", "opencode", "cursor"]
+default_agents = ["claude", "codex", "opencode", "cursor", "gemini"]
 
 [gitignore]
 enabled = false
@@ -49,4 +49,13 @@ description = "Cursor user-level shared skills"
 [agents.cursor.targets.skills]
 source = "skills"
 destination = "/Users/karen/.cursor/skills-cursor"
+type = "symlink"
+
+[agents.gemini]
+enabled = true
+description = "Gemini CLI user-level shared skills"
+
+[agents.gemini.targets.skills]
+source = "skills"
+destination = "/Users/karen/.gemini/antigravity/skills"
 type = "symlink"
