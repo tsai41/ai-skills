@@ -5,6 +5,8 @@ TL;DR:
 - Shared source lives in `agents/` and `skills/`.
 - AgentSync is required to apply these sync operations.
 
+---
+
 `ai-hub` is the user-level source of truth for shared AI setup.
 
 It centralizes:
