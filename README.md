@@ -55,10 +55,17 @@ Use the included `Makefile` to keep operations short and consistent:
 make sync-dry   # preview planned link updates
 make sync       # apply links
 make sync-mcp   # sync MCP servers across tool configs
+make apply-policy # apply user-level trust/permission defaults
 make check      # verify links point to .ai-hub
-make bootstrap  # sync-dry + check
+make sync-all   # sync links + MCP + policy + health check
+make bootstrap  # alias of sync-all
 ```
 
 MCP sync uses the home-level config at `../.agentsync-mcp.toml` so AgentSync
 updates each tool's user config location. For OpenCode, `make sync-mcp` merges
 generated MCP entries into `.config/opencode/opencode.json`.
+
+User-level policy is defined in `policy/user-policy.json` and currently covers:
+
+- Claude `settings.local.json` permission defaults for read-only tools and read-only git/system commands
+- Gemini MCP server trust flags
